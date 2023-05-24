@@ -3,7 +3,7 @@ import uuid
 from django_mysql.models import ListCharField
 
 
-# Create your models here.
+# Create your models here(comments).
 
 
 class guide(models.Model):
