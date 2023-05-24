@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOIT</title>
+    <link rel="stylesheet" href="{%static 'css/style2.css' %}">
+    <link rel="icon" type="image/x-icon" href="/static/img/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="all">
+        {% for message  in messages %}
+        <h2 style="color: red; text-align: center">{{message}}</h2>
+        {% endfor %}            
+        <div class="box">
+            <form action="{% url 'guide' user %}" method="POST" class="forms">
+                {% csrf_token %}
+                <p>
+                    Name
+                </p>
+                {{form.guide_name}}
+                <!-- <input type="text" class="inputs" name="username" required> -->
+                <p>
+                    Email
+                </p>
+                {{form.guide_email}}
+                <!-- <input type="text" class="inputs" name="name" required> -->
+                <p>
+                    List of Teams
+                </p>
+                {{form.teams}}
+                <!-- <input type="email" class="inputs" name="email" required> -->
+                <input type="submit" value="Submit" class="submit">
+            </form>
+            
+
+        </div>
+    </div>
+</body>
+
+</html>

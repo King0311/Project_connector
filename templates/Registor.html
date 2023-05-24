@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOIT</title>
+    <link rel="stylesheet" href="{%static 'css/style2.css' %}">
+    <link rel="icon" type="image/x-icon" href="/static/img/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="all">
+        {% for message  in messages %}
+        <h2 style="color: red; text-align: center">{{message}}</h2>
+        {% endfor %}            
+        <div class="box">
+            <form action="" method="POST" class="forms">
+                {% csrf_token %}
+                <p>
+                    UserName
+                </p>
+                <input type="text" class="inputs" name="username" required>
+                <p>
+                    Name
+                </p>
+                <input type="text" class="inputs" name="name" required>
+                <p>
+                    Email
+                </p>
+                <input type="email" class="inputs" name="email" required>
+                <p>
+                    who are you
+                </p>
+                <select name="type" id="" class="inputs" name="type" required>
+                    <option value="">----Select----</option>
+                    <option value="guide">Guide</option>
+                    <option value="team">Student Team</option>
+                </select>
+                <p>
+                    Create Password
+                </p>
+                <input type="password" class="inputs" name="password1" required>
+                <p>
+                    Confirm Password
+                </p>
+                <input type="password" class="inputs" name="password2" required>
+                <input type="submit" value="Submit" class="submit">
+                <div class="already" >
+                    <a href="login">Already have an account</a>
+                </div>
+            </form>
+            
+
+        </div>
+    </div>
+</body>
+
+</html>

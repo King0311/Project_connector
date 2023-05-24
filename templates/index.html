@@ -1,0 +1,226 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Do It</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="icon" type="image/x-icon" href="/static/img/logo.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img
+            src="/static/img/logo.jpg"
+            alt=""
+            srcset=""
+            height="100%"
+            width="70%"
+          />
+        </div>
+        <ul>
+          <li onclick="upper()">Home</li>
+          <li onclick="bottom()">Contact Us</li>
+          <li onclick="about()">About Us</li>
+          {% if user.is_authenticated %}
+          <li><a href="logout">LogOut</a></li>
+          {% else %}
+          <li>Lets Go</li>
+          {% endif %}
+        </ul>
+        <div class="button">
+          {% if user.is_authenticated %}
+          <p>
+            <a href="#">{{user.username}}</a>
+          </p>
+          {% else %}
+          <p>
+            <a href="registor">GET STARTED</a>
+          </p>
+          {% endif %}
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="something">
+        <div class="text_isme">
+          <div class="bigger_text">
+            <p>Manage Your Project with DOIT To Be More Productive.</p>
+          </div>
+          <div class="smaller_text">
+            Stay connected with every member and guide by DOIT to solve
+            problems.
+          </div>
+          <div class="phela">
+            {% if user.is_authenticated %}
+            <p>
+              <a href="#">Lets Go</a>
+            </p>
+            {% else %}
+            <p>
+              <a href="registor">Create Your Account</a>
+            </p>
+
+            {% endif %}
+          </div>
+          <div class="dusra"></div>
+        </div>
+        <div class="img_ispe">
+          <img
+            src="/static/img/try_this.png"
+            alt=""
+            srcset=""
+            height="99%"
+            width="100%"
+          />
+        </div>
+      </div>
+      <div class="otherthings">
+        <div class="part1" id="one">
+          <div class="svg-inthis">
+            <!-- <img src="ezgif.com-gif-maker.gif" alt="" srcset="" height="80%" width="80%"> -->
+            <!-- <img src="https://img.icons8.com/material-outlined/90/0088b8/connected-people.png"/> -->
+            <lord-icon
+              src="https://cdn.lordicon.com/zpxybbhl.json"
+              trigger="hover"
+              colors="primary:#0088b8,secondary:#08a88a"
+              stroke="65"
+              style="width: 100%; height: 100%"
+            >
+            </lord-icon>
+          </div>
+          <div class="heading">
+            <p>Guide Connection</p>
+          </div>
+          <div class="des">
+            <p>
+              Our software connects you with guides, simplifying the process
+              with real-time messaging, video conferencing, and file sharing.
+            </p>
+          </div>
+        </div>
+        <div class="part1" id="two">
+          <div class="svg-inthis">
+            <!-- <img src="icons8-combo-chart-48.png" alt="" srcset="" height="90%" width="90%"> -->
+            <!-- <img src="https://img.icons8.com/ios/90/0088b8/calendar-plus.png" /> -->
+            <lord-icon
+              src="https://cdn.lordicon.com/gqdnbnwt.json"
+              trigger="hover"
+              colors="primary:#121331,secondary:#0088b8"
+              style="width: 100%; height: 100%"
+            >
+            </lord-icon>
+          </div>
+          <div class="heading">
+            <p>Weekly Updation</p>
+          </div>
+          <div class="des">
+            <p>
+              Our software streamlines weekly updates with real-time
+              collaboration and easy document sharing. Stay organized and
+              informed.
+            </p>
+          </div>
+        </div>
+        <div class="part1" id="three">
+          <div class="svg-inthis">
+            <!-- <img src="icons8-combo-chart-48.png" alt="" srcset="" height="90%" width="90%"> -->
+            <!-- <img src="https://img.icons8.com/ios-filled/90/0088b8/thumbs-up-down.png" /> -->
+            <lord-icon
+              src="https://cdn.lordicon.com/hrqwmuhr.json"
+              trigger="hover"
+              colors="primary:#0088b8,secondary:#000000"
+              style="width: 100%; height: 100%"
+            >
+            </lord-icon>
+          </div>
+          <div class="heading">
+            <p>Weekly Review</p>
+          </div>
+          <div class="des">
+            <p>
+              Our software simplifies the review process by providing a
+              user-friendly platform for guide review.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="soluton">
+        <p>Our Soluton To Your Problem.</p>
+      </div>
+      <div class="somemore">
+        <div class="iska1">
+          <div class="isme1">
+            <h1>Improves Communications.</h1>
+            <p>
+              Our software is designed to improve communication, making it
+              easier to connect with others and collaborate effectively. With
+              features such as real-time messaging, video conferencing, and file
+              sharing, our software streamlines communication and helps users to
+              stay organized and productive. Say goodbye to missed messages and
+              complicated communication. Upgrade to our software today!
+            </p>
+          </div>
+          <div class="isme2"></div>
+        </div>
+        <div class="iska1" id="kuchalag">
+          <div class="isme1">
+            <h1>No Personal Interaction.</h1>
+            <p>
+              Our software eliminates the need for personal interaction,
+              allowing you to communicate and collaborate with others from
+              anywhere, at any time. With features such as real-time messaging,
+              video conferencing, and file sharing, our software makes it easy
+              to stay connected and productive, even when working remotely or in
+              different locations. Upgrade to our software today and say goodbye
+              to the limitations of face-to-face communication.
+            </p>
+          </div>
+          <div class="isme2"></div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="onceagain">
+        <img src="/static/img/logo.jpg" alt="" height="90%" />
+      </div>
+      <div class="sectioner">
+        <div class="section1" id="oner">
+          <h1>Let's Talk</h1>
+          <p>
+            Reach out to pratikagnihotri1234@gmail.com if you would like to know
+            more.
+          </p>
+        </div>
+        <div class="section1" id="tower">
+          <h1>Find us:</h1>
+          <p>
+            SeaForester<br />
+            Rua Melo e Sousa, Bloco 2, Loja 212<br />
+            2765-253 Estoril, Portugal
+          </p>
+        </div>
+        <div class="section1" id="threeer">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui unde
+            saepe obcaecati dolore vitae, consectetur reiciendis harum, modi ut
+            pariatur voluptatum veniam nihil doloremque sapiente consequuntur
+            eos distinctio quaerat quam omnis aliquam recusandae eligendi.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script src="/static/js/index.js"></script>
+    <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+  </body>
+</html>

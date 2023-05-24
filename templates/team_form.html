@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOIT</title>
+    <link rel="stylesheet" href="{%static 'css/style2.css' %}">
+    <link rel="icon" type="image/x-icon" href="/static/img/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="all">
+        {% for message  in messages %}
+        <h2 style="color: red; text-align: center">{{message}}</h2>
+        {% endfor %}            
+        <div class="box">
+            <form action="{% url 'student_chat' user %}" method="POST" class="forms">
+                {% csrf_token %}
+                <p>
+                    Name
+                </p>
+                {{form.team_std_div}}
+                <!-- <input type="text" class="inputs" name="username" required> -->
+                <!-- <input type="text" class="inputs" name="name" required> -->
+                <p>
+                    Guide
+                </p>
+                {{form.guide}}
+                <!-- <input type="email" class="inputs" name="email" required> -->
+                <p>
+                    All Member's Name
+                </p>
+                {{form.mem1}}
+                {{form.mem2}}
+                {{form.mem3}}
+                {{form.mem4}}
+                <p>
+                    Name of Project
+                </p>
+                {{form.project_name}}
+                <input type="submit" value="Submit" class="submit">
+            </form>
+            
+
+        </div>
+    </div>
+</body>
+
+</html>
