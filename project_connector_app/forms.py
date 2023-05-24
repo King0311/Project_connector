@@ -1,7 +1,7 @@
 from .models import *
 from django.forms import ModelForm
 from django import forms
-from django_mysql.models import ListTextField
+
 
 class guide_profile_form(ModelForm):
     class Meta:
