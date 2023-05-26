@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from .models import *
 from .forms import *
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -20,7 +21,8 @@ def registor(request):
         type = request.POST['type']
         if(password1 == password2):
             if User.objects.filter(username=username).exists():
-                messages.info(request, "Username Is Already Taken Please Try Different")
+                messages.info(
+                    request, "Username Is Already Taken Please Try Different")
                 return redirect('registor')
             elif User.objects.filter(email=email).exists():
                 messages.info(request, "This Email Is Already In Use")
@@ -41,44 +43,49 @@ def registor(request):
 
 
 def login(request):
-    if(request.method=='POST'):
-        username=request.POST['username']
-        password=request.POST['password']
-        type=request.POST['type']
-        user=auth.authenticate(username=username,password=password)
+    if(request.method == 'POST'):
+        username = request.POST['username']
+        password = request.POST['password']
+        type = request.POST['type']
+        user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            if type=="guide":
+            if type == "guide":
                 return redirect("guide_form")
             else:
                 return redirect("team_form")
         else:
-            messages.info(request,"Your are not our user or something may be wrong. Please try again later.")
+            messages.info(
+                request, "Your are not our user or something may be wrong. Please try again later.")
             return redirect("login")
     else:
         return render(request, "login.html")
-    
+
+
 def logout(request):
     auth.logout(request)
     return redirect("homepage")
 
 
-def guide(request,pr):
-    return render(request, "guide.html", {'pr':pr})
+def guide(request, pr):
+    return render(request, "guide.html", {'pr': pr})
 
+@login_required(login_url="login")
 def guide_form(request):
-    user=request.user
-    form=guide_profile_form()
-    if request.method=='POST':
-        form=guide_profile_form(request.POST)
-        if form.is_valid:
-            data=form.save
-            return data
+    user = request.user
+    logedin_user=User.objects.get(username=user)
+    form = guide_profile_form()
+    if request.method == 'POST':
+        form = guide_profile_form(request.POST)
+        if form.is_valid():
+            data1 = form.save()
+            dynamic_url = reverse('guide', args=[user])
+            return redirect(dynamic_url)
         else:
             pass
     else:
-        pass
-    return render(request, "guide_form.html",{'form':form,'user':user})
+        form=guide_profile_form(instance=logedin_user)
+    return render(request, "guide_form.html", {'form': form, 'user': user})
 
 
 def guide_assign(request):
@@ -88,27 +95,35 @@ def guide_assign(request):
 def guide_updates(request):
     return render(request, "guide_updates.html")
 
+@login_required(login_url="login")
 def team_form(request):
-    user=request.user
-    form=team_profile_form()
-    if request.method=='POST':
-        form=team_profile_form(request.POST)
-        if form.is_valid:
-            data=form.save
-            return data
+    user = request.user
+    logedin_user=User.objects.get(username=user)
+    form2 = team_profile_form()
+    if request.method == 'POST':
+        form2 = team_profile_form(request.POST)
+        if form2.is_valid():
+            data2 = form2.save()
+            dynamic_url = reverse('student_chat', args=[user])
+            return redirect(dynamic_url)
         else:
             pass
     else:
-        pass
-    return render(request, "team_form.html",{'form':form,'user':user})
-
-def student_chat(request,pr):
-    return render(request, "student_chat.html",{'pr':pr})
+        form2=team_profile_form(instance=logedin_user)
+    return render(request, "team_form.html", {'form': form2, 'user': user})
 
 
-def student_work(request):
-    return render(request, "student_work.html")
+def student_chat(request, pr):
+    user=team.objects.get(username=pr)
+    print(user.username)
+    return render(request, "student_chat.html", {'pr': pr,'user':user})
 
 
-def student_updates(request):
-    return render(request, "student_updates.html")
+def student_work(request,pr):
+    user=team.objects.get(username=pr)
+    return render(request, "student_work.html",{'pr': pr,'user':user})
+
+
+def student_updates(request,pr):
+    user=team.objects.get(username=pr)
+    return render(request, "student_updates.html",{'pr': pr,'user':user})

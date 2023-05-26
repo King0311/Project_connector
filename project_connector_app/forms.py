@@ -6,15 +6,15 @@ from django import forms
 class guide_profile_form(ModelForm):
     class Meta:
         model=guide
-        fields='__all__'
+        fields=['username','guide_name','guide_email']
         widget={
+            'username':forms.TextInput(attrs={
+                'class':'inputs',
+            }),
             'guide_name':forms.TextInput(attrs={
                 'class':'inputs',
             }),
             'guide_email':forms.EmailInput(attrs={
-                'class':'inputs',
-            }),
-            'teams':forms.TextInput(attrs={
                 'class':'inputs',
             }),
         }
@@ -23,8 +23,12 @@ class guide_profile_form(ModelForm):
 class team_profile_form(ModelForm):
     class Meta:
         model=team
-        fields='__all__'
+        fields=['username','team_std_div','team_no','guide','mem1','mem2','mem3','mem4','project_name']
         widget={
+            'username':forms.TextInput(attrs={
+                'class':'inputs',
+            }),
+
             'team_std_div':forms.TextInput(attrs={
                 'class':'inputs',
             }),

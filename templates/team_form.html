@@ -12,21 +12,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200&display=swap" rel="stylesheet">
-
+<!-- action="{% url 'student_chat' user %}" -->
 </head>
 
 <body>
-    <div class="all">
-        {% for message  in messages %}
-        <h2 style="color: red; text-align: center">{{message}}</h2>
-        {% endfor %}            
+    <div class="all">     
         <div class="box">
-            <form action="{% url 'student_chat' user %}" method="POST" class="forms">
+            <form class="forms" method="POST"   >
                 {% csrf_token %}
+                <p>
+                    UserName
+                </p>
+                {{form.username}}
                 <p>
                     Name
                 </p>
                 {{form.team_std_div}}
+                <p>
+                    Team no
+                </p>
+                {{form.team_no}}
                 <!-- <input type="text" class="inputs" name="username" required> -->
                 <!-- <input type="text" class="inputs" name="name" required> -->
                 <p>

@@ -25,7 +25,7 @@
                 <li><a href="/">Contact Us</a></li>
                 <li><a href="/">About Us</a></li>
                 <li><a href="/">Home</a></li>
-                <li>YOUR TEAM</li>
+                <li style="text-transform: uppercase;">{{pr}}</li>
             </ul>
             <div class="button">
                 <p><a href="#">LogOut</a> </p>
@@ -38,21 +38,21 @@
                 <div class="team_detail">
                     <div class="team_mem">
                         <h1>
-                            TEAM MEMBER
+                            Your Team
                         </h1>
                         <ul>
-                            <li>TERA BAAP</li>
-                            <li>TERA SASUR</li>
-                            <li>TERI SASU</li>
-                            <li>TERI BIWI</li>
+                            <li style="text-transform: uppercase;">{{user.mem2}}</li>
+                            <li style="text-transform: uppercase;">{{user.mem3}}</li>
+                            <li style="text-transform: uppercase;">{{user.mem4}}</li>
+                            <li style="text-transform: uppercase;">{{user.mem1}}</li>
                         </ul>
                     </div>
                     <div class="project_name">
                         <h1>
                             Project Name
                         </h1>
-                        <p>
-                            WashRoom Cleaner
+                        <p style="text-transform: uppercase;">
+                            {{user.project_name}}
                         </p>
                     </div>
                     <div class="guide_name">
@@ -60,7 +60,7 @@
                             Guide Name
                         </h1>
                         <p>
-                            Vijay Dinanath Chauhan
+                            {{user.guide}}
                         </p>
                     </div>
                 </div>
@@ -69,8 +69,8 @@
                 <div class="lof">
                     <ul>
                         <li><b><a href="#">Chat</a></b></li>
-                        <li><a href="student_work">Assign work</a></li>
-                        <li><a href="student_updates">Updates</a></li>
+                        <li><a href="{% url 'student_work' pr %}">Assign work</a></li>
+                        <li><a href="{% url 'student_updates' pr %}">Updates</a></li>
                     </ul>
                 </div>
 
