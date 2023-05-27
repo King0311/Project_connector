@@ -17,6 +17,12 @@
   </head>
 
   <body>
+    {% for userss in users %} 
+      {% if userss.guide.guide_id == guide_user.guide_id %}
+        {{userss}} <br>
+      {% endif %} 
+    {% endfor %}
+
     <header>
       <nav>
         <div class="logo">

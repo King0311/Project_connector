@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
-from .models import *
+from .models import guide as guide_model , team 
 from .forms import *
 from django.contrib.auth.decorators import login_required
 
@@ -9,7 +9,9 @@ from django.contrib.auth.decorators import login_required
 
 
 def homepage(request):
-    return render(request, "index.html")
+    guide_user=guide_model.objects.get(guide_name="Shopia Mujawar")
+    users=team.objects.all()    
+    return render(request, "index.html", {'users':users,'guide_user':guide_user})
 
 
 def registor(request):
