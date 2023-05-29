@@ -32,3 +32,12 @@ class team(models.Model):
         return self.team_std_div + " " + self.team_no
 
 
+class updates_by_team(models.Model):
+    username=models.CharField(default="", max_length=50)
+    start_date=models.DateField( auto_now=False, auto_now_add=False)
+    end_date=models.DateField( auto_now=False, auto_now_add=False)
+    work_name=models.CharField(default="", max_length=50)
+    work_des=models.CharField(default="", max_length=50)
+
+    def __str__(self):
+        return self.username 

@@ -73,7 +73,8 @@
                         <li><b><a href="#">Updates</a></b></li>
                     </ul>
                 </div>
-                <form action="" class="Assign_work">
+                <form method="POST" class="Assign_work">
+                    {%csrf_token %}
                     <p>
                         Start Date
                     </p>
@@ -90,6 +91,7 @@
                         Description
                     </p>
                     <input type="text" name="Des" id="">
+                    <input type="submit" value="submit">
                 </form>
             </div>
         </div>

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
-from .models import guide as guide_model , team 
+from .models import guide as guide_model , team , updates_by_team 
 from .forms import *
 from django.contrib.auth.decorators import login_required
 
@@ -128,4 +128,22 @@ def student_work(request,pr):
 
 def student_updates(request,pr):
     user=team.objects.get(username=pr)
+    username = pr
+    if request.method == "POST":
+        start_date = request.POST['Sdate']
+        end_date = request.POST['Edate']
+        work_name = request.POST['name']
+        work_des = request.POST['Des']
+        create=updates_by_team.objects.create(
+            username=username,
+            start_date=start_date,
+            end_date=end_date,
+            work_name=work_name,
+            work_des=work_des
+        )
+        create.save()
+        return redirect(request.path)
+    else:
+        pass
+    
     return render(request, "student_updates.html",{'pr': pr,'user':user})
