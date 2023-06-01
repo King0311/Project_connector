@@ -75,6 +75,10 @@
     font-size: 2em;
     padding: 0px 10px;
   }
+  .names p a{
+    text-decoration: none;
+    color: #0088b8;
+  }
   .sep2 {
     width: 67vw;
     /* height: auto; */

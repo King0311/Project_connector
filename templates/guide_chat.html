@@ -50,13 +50,13 @@
                     </div>
                     <div class="teams">
                         {% for teamsss in teams_using_guide_username %}
-                        <div class="team1" >
+                        <div class="team1">
                             <div class="photo">
                                 <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
                             </div>
                             <div class="names">
                                 <p>
-                                   <a style="text-decoration:none" href="{%url 'guide_chat' pr teamsss.team_std_div %}"> TEAM {{teamsss.team_no}}</a><br>
+                                   <a  href="{%url 'guide_chat' pr teamsss.team_std_div %}"> TEAM {{teamsss.team_no}}</a><br>
                                 </p>
                                 <aside style="text-transform: uppercase;">
                                     {{teamsss.team_std_div}}
@@ -163,7 +163,7 @@
             <div class="sep2">
                 <div class="lof">
                     <ul>
-                        <li><b><a href="#">Chat</a></b></li>
+                        <li><a href="#">Chat</a></li>
                         <li><a href="{% url 'guide_assign' pr %}">Assign work</a></li>
                         <li><a href="{% url 'guide_updates' pr %}">Updates</a></li>
                     </ul>

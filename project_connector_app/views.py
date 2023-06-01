@@ -8,10 +8,13 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
-def homepage(request):
-    guide_user=guide_model.objects.get(guide_name="Shopia Mujawar")
-    users=team.objects.all()    
-    return render(request, "index.html", {'users':users,'guide_user':guide_user})
+def homepage(request): 
+    # logedin_user=request.user
+    # guide_using_username=guide_model.objects.get(username=logedin_user)  
+    # teams_using_guide_username=team.objects.filter(guide=guide_using_username)
+    # for teamsss in teams_using_guide_username:
+    #     print(teamsss)
+    return render(request, "index.html")
 
 
 def registor(request):
@@ -69,8 +72,6 @@ def logout(request):
     return redirect("homepage")
 
 
-def guide(request, pr):
-    return render(request, "guide.html", {'pr': pr})
 
 @login_required(login_url="login")
 def guide_form(request):
@@ -89,13 +90,22 @@ def guide_form(request):
         form=guide_profile_form(instance=logedin_user)
     return render(request, "guide_form.html", {'form': form, 'user': user})
 
+def guide(request, pr):
+    guide_using_username=guide_model.objects.get(username=pr)  
+    teams_using_guide_username=team.objects.filter(guide=guide_using_username)
+    return render(request, "guide.html", {'pr': pr,'teams_using_guide_username':teams_using_guide_username})
 
-def guide_assign(request):
-    return render(request, "guide_assign.html")
+def guide_chat(request, pr, ag):
+    guide_using_username=guide_model.objects.get(username=pr)  
+    teams_using_guide_username=team.objects.filter(guide=guide_using_username)
+    return render(request,"guide_chat.html",{'pr':pr,'ag':ag, 'teams_using_guide_username':teams_using_guide_username})
+
+def guide_assign(request,pr):
+    return render(request, "guide_assign.html",{'pr':pr})
 
 
-def guide_updates(request):
-    return render(request, "guide_updates.html")
+def guide_updates(request,pr):
+    return render(request, "guide_updates.html",{'pr':pr})
 
 @login_required(login_url="login")
 def team_form(request):
