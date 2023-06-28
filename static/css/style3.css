@@ -262,7 +262,7 @@
     padding: 15px 0;
   }
   
-  .timeline::after {
+  .timeline:nth-child(even)::after {
     content: "";
     position: absolute;
     width: 2px;
@@ -272,6 +272,16 @@
     left: 50%;
     margin-left: -1px;
   }
+  .timeline:nth-child(odd)::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    background: #0088b8;
+    top: 0;
+    bottom: 0;
+    right: 0%;
+    margin-right: 0px;
+  }
   
   .container {
     position: relative;
@@ -279,15 +289,26 @@
     width: 50%;
   }
   
-  .container.left {
+  .timeline:nth-child(even) {
     left: 0;
   }
   
-  .container.right {
+  .timeline:nth-child(odd) {
     left: 50%;
   }
-  
-  .container::after {
+  .timeline:nth-child(odd) .container::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: calc(50% - 8px);
+    right: 416px;
+    background: #ffffff;
+    border: 2px solid white;
+    border-radius: 16px;
+    z-index: 1;
+  }
+  .timeline:nth-child(even) .container::after {
     content: "";
     position: absolute;
     width: 16px;
@@ -300,11 +321,21 @@
     z-index: 1;
   }
   
-  .container.right::after {
+  .timeline:nth-child(odd)::after {
     left: -8px;
   }
   
-  .container::before {
+  .timeline:nth-child(odd) .container::before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    top: calc(50% - 1px);
+    right: 370px;
+    background: white;
+    z-index: 1;
+  }
+  .timeline:nth-child(even) .container::before {
     content: "";
     position: absolute;
     width: 50px;
@@ -315,7 +346,7 @@
     z-index: 1;
   }
   
-  .container.right::before {
+  .timeline:nth-child(odd)::before {
     left: 8px;
   }
   
@@ -332,13 +363,13 @@
     z-index: 1;
   }
   
-  .container.left .date {
+  .timeline:nth-child(even)  .date {
     top: 32px;
     right: 45px;
   }
   
-  .container.right .date {
-    left: 365px;
+  .timeline:nth-child(odd) .date {
+    left: 320px;
     top: 30px;
   }
   
@@ -349,7 +380,7 @@
     border-radius: 0 500px 500px 0;
   }
   
-  .container.right .content {
+  .timeline:nth-child(odd) .content {
     padding: 30px 30px 30px 90px;
     border-radius: 500px 0 0 500px;
   }

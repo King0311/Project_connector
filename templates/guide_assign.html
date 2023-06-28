@@ -21,9 +21,9 @@
                 <img src="/static/img/logo.jpg" alt="" srcset="" height="100%" width="70%">
             </div>
             <ul>
+                <li><a href="/">Home</a></li>
                 <li><a href="/">Contact Us</a></li>
                 <li><a href="/">About Us</a></li>
-                <li><a href="/">Home</a></li>
                 <li>YOUR NAME</li>
             </ul>
             <div class="button">
@@ -48,20 +48,22 @@
                         </p>
                     </div>
                     <div class="teams">
-                        <div class="team1">
+                        {% for teamsss in teams_using_guide_username %}
+                        <div class="team1" >
                             <div class="photo">
                                 <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
                             </div>
                             <div class="names">
                                 <p>
-                                    TEAM 19<br>
+                                   <a style="text-decoration:none" href="{%url 'guide_chat' pr teamsss.team_std_div %}"> TEAM {{teamsss.team_no}}</a><br>
                                 </p>
-                                <aside>
-                                    TE Div A
+                                <aside style="text-transform: uppercase;">
+                                    {{teamsss.team_std_div}}
                                 </aside>
                             </div>
                         </div>
-                        <div class="team1">
+                        {% endfor %}
+                        <!-- <div class="team1">
                             <div class="photo">
                                 <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
                             </div>
@@ -138,8 +140,8 @@
                                     TE Div A
                                 </aside>
                             </div>
-                        </div>
-                        <div class="team1">
+                        </div> -->
+                        <!-- <div class="team1">
                             <div class="photo">
                                 <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
                             </div>
@@ -151,7 +153,7 @@
                                     TE Div A
                                 </aside>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
 
@@ -160,9 +162,9 @@
             <div class="sep2">
                 <div class="lof">
                     <ul>
-                        <li><a href="{% url 'guide' pr %}">Chat</a></li>
+                        <li><a href="{% url 'guide_chat' pr ag %}">Chat</a></li>
                         <li><b><a href="#">Assign work</a></b></li>
-                        <li><a href="{% url 'guide_updates' pr %}">Updates</a></li>
+                        <li><a href="{% url 'guide_updates' pr ag %}">Updates</a></li>
                     </ul>
                 </div>
                 <form action="" class="Assign_work">

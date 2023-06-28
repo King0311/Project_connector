@@ -34,6 +34,8 @@ class team(models.Model):
 
 class updates_by_team(models.Model):
     username=models.CharField(default="", max_length=50)
+    guide=models.ForeignKey(guide, on_delete=models.CASCADE, default="")
+    team_std_div = models.CharField(max_length=10, default="")
     start_date=models.DateField( auto_now=False, auto_now_add=False)
     end_date=models.DateField( auto_now=False, auto_now_add=False)
     work_name=models.CharField(default="", max_length=50)

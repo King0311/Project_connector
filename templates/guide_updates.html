@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    
     <header>
         <nav>
             <div class="logo">
@@ -47,78 +48,21 @@
                         <p>YOUR TEAMS</p>
                     </div>
                     <div class="teams">
-                        <div class="team1">
+                        {% for teamsss in teams_using_guide_username %}
+                        <div class="team1" >
                             <div class="photo">
                                 <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
                             </div>
                             <div class="names">
-                                <p>TEAM 19<br /></p>
-                                <aside>TE Div A</aside>
+                                <p>
+                                   <a style="text-decoration:none" href="{%url 'guide_chat' pr teamsss.team_std_div %}"> TEAM {{teamsss.team_no}}</a><br>
+                                </p>
+                                <aside style="text-transform: uppercase;">
+                                    {{teamsss.team_std_div}}
+                                </aside>
                             </div>
                         </div>
-                        <div class="team1">
-                            <div class="photo">
-                                <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
-                            </div>
-                            <div class="names">
-                                <p>TEAM 47<br /></p>
-                                <aside>TE Div A</aside>
-                            </div>
-                        </div>
-                        <div class="team1">
-                            <div class="photo">
-                                <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
-                            </div>
-                            <div class="names">
-                                <p>TEAM 54<br /></p>
-                                <aside>TE Div A</aside>
-                            </div>
-                        </div>
-                        <div class="team1">
-                            <div class="photo">
-                                <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
-                            </div>
-                            <div class="names">
-                                <p>TEAM 66<br /></p>
-                                <aside>TE Div A</aside>
-                            </div>
-                        </div>
-                        <div class="team1">
-                            <div class="photo">
-                                <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
-                            </div>
-                            <div class="names">
-                                <p>TEAM 64<br /></p>
-                                <aside>TE Div A</aside>
-                            </div>
-                        </div>
-                        <div class="team1">
-                            <div class="photo">
-                                <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
-                            </div>
-                            <div class="names">
-                                <p>TEAM 48<br /></p>
-                                <aside>TE Div A</aside>
-                            </div>
-                        </div>
-                        <div class="team1">
-                            <div class="photo">
-                                <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
-                            </div>
-                            <div class="names">
-                                <p>TEAM 74<br /></p>
-                                <aside>TE Div A</aside>
-                            </div>
-                        </div>
-                        <div class="team1">
-                            <div class="photo">
-                                <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
-                            </div>
-                            <div class="names">
-                                <p>TEAM 36<br /></p>
-                                <aside>TE Div A</aside>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -126,79 +70,34 @@
                 <div class="lof">
                     <ul>
                         <li>
-                            <a href="{% url 'guide' pr %}">Chat</a>
+                            <a href="{% url 'guide_chat' pr ag %}">Chat</a>
                         </li>
-                        <li><a href="{% url 'guide_assign' pr %}">Assign work</a></li>
+                        <li><a href="{% url 'guide_assign' pr ag %}">Assign work</a></li>
                         <li>
                             <b><a href="#">Updates</a></b>
                         </li>
                     </ul>
                 </div>
+                {% for teams_up in teams_updates %}
+                    {% if ag == teams_up.team_std_div %}
                 <div class="timeline">
-                    <div class="container left">
-                        <div class="date">15 Dec</div>
+                    <div class="container">
+                        <div class="date">{{teams_up.end_date}}</div>
                         <div class="content">
-                            <h2>Lorem ipsum dolor sit amet</h2>
+                            <h2>{{teams_up.work_name}}</h2>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus
-                                erat sagittis non. Ut blandit semper pretium.
+                                {{teams_up.work_des}}
                             </p>
                         </div>
                     </div>
-                    <div class="container right">
-                        <div class="date">22 Oct</div>
-                        <div class="content">
-                            <h2>Lorem ipsum dolor sit amet</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus
-                                erat sagittis non. Ut blandit semper pretium.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="container left">
-                        <div class="date">15 Dec</div>
-                        <div class="content">
-                            <h2>Lorem ipsum dolor sit amet</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus
-                                erat sagittis non. Ut blandit semper pretium.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="container right">
-                        <div class="date">22 Oct</div>
-                        <div class="content">
-                            <h2>Lorem ipsum dolor sit amet</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus
-                                erat sagittis non. Ut blandit semper pretium.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="container left">
-                        <div class="date">15 Dec</div>
-                        <div class="content">
-                            <h2>Lorem ipsum dolor sit amet</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus
-                                erat sagittis non. Ut blandit semper pretium.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="container right">
-                        <div class="date">22 Oct</div>
-                        <div class="content">
-                            <h2>Lorem ipsum dolor sit amet</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus
-                                erat sagittis non. Ut blandit semper pretium.
-                            </p>
-                        </div>
-                    </div>
+                    
                 </div>
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
     </main>
+   
 </body>
 
 </html>
