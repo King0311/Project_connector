@@ -63,97 +63,6 @@
                             </div>
                         </div>
                         {% endfor %}
-                        <!-- <div class="team1">
-                            <div class="photo">
-                                <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
-                            </div>
-                            <div class="names">
-                                <p>
-                                    TEAM 47<br>
-                                </p>
-                                <aside>
-                                    TE Div A
-                                </aside>
-                            </div>
-                        </div>
-                        <div class="team1">
-                            <div class="photo">
-                                <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
-                            </div>
-                            <div class="names">
-                                <p>
-                                    TEAM 54<br>
-                                </p>
-                                <aside>
-                                    TE Div A
-                                </aside>
-                            </div>
-                        </div>
-                        <div class="team1">
-                            <div class="photo">
-                                <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
-                            </div>
-                            <div class="names">
-                                <p>
-                                    TEAM 66<br>
-                                </p>
-                                <aside>
-                                    TE Div A
-                                </aside>
-                            </div>
-                        </div>
-                        <div class="team1">
-                            <div class="photo">
-                                <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
-                            </div>
-                            <div class="names">
-                                <p>
-                                    TEAM 64<br>
-                                </p>
-                                <aside>
-                                    TE Div A
-                                </aside>
-                            </div>
-                        </div>
-                        <div class="team1">
-                            <div class="photo">
-                                <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
-                            </div>
-                            <div class="names">
-                                <p>
-                                    TEAM 48<br>
-                                </p>
-                                <aside>
-                                    TE Div A
-                                </aside>
-                            </div>
-                        </div>
-                        <div class="team1">
-                            <div class="photo">
-                                <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
-                            </div>
-                            <div class="names">
-                                <p>
-                                    TEAM 74<br>
-                                </p>
-                                <aside>
-                                    TE Div A
-                                </aside>
-                            </div>
-                        </div> -->
-                        <!-- <div class="team1">
-                            <div class="photo">
-                                <img src="https://img.icons8.com/ios-filled/70/0088b8/user-male-circle.png" />
-                            </div>
-                            <div class="names">
-                                <p>
-                                    TEAM 36<br>
-                                </p>
-                                <aside>
-                                    TE Div A
-                                </aside>
-                            </div>
-                        </div> -->
 
                     </div>
 
@@ -167,7 +76,8 @@
                         <li><a href="{% url 'guide_updates' pr ag %}">Updates</a></li>
                     </ul>
                 </div>
-                <form action="" class="Assign_work">
+                <form action="" class="Assign_work" method="POST">
+                    {%csrf_token %}
                     <p>
                         Start Date
                     </p>
@@ -177,6 +87,10 @@
                     </p>
                     <input type="date" name="Edate" id="">
                     <p>
+                        Team No
+                    </p>
+                    <input type="number" name="no" id="">
+                    <p>
                         Work Name
                     </p>
                     <input type="text" name="name" id="">
@@ -184,6 +98,7 @@
                         Description
                     </p>
                     <input type="text" name="Des" id="">
+                    <input class="submitbutton" type="submit" value="submit">
                 </form>
             </div>
         </div>

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
-from .models import guide as guide_model, team, updates_by_team
+from .models import guide as guide_model, team, updates_by_team, work_assign_by_guide
 from .forms import *
 from django.contrib.auth.decorators import login_required
 
@@ -106,8 +106,29 @@ def guide_chat(request, pr, ag):
 
 def guide_assign(request, pr, ag):
     guide_using_username = guide_model.objects.get(username=pr)
-    teams_using_guide_username = team.objects.filter(
-        guide=guide_using_username)
+    teams_using_guide_username = team.objects.filter(guide=guide_using_username)
+    username=pr
+    guide_name=guide_using_username
+    std=ag
+    if request.method == 'POST':
+        start_date = request.POST['Sdate']
+        end_date = request.POST['Edate']
+        no = request.POST['no']
+        work_name = request.POST['name']
+        work_des = request.POST['Des']
+        create = work_assign_by_guide.objects.create(
+            username=username,
+            guide=guide_name,
+            team_std_div=std,
+            start_date=start_date,
+            end_date=end_date,
+            no=no,
+            work_name=work_name,
+            work_des=work_des
+        )
+        create.save()
+        return redirect(request.path)
+
     return render(request, "guide_assign.html", {'pr': pr, 'ag': ag, 'teams_using_guide_username': teams_using_guide_username})
 
 

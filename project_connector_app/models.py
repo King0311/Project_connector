@@ -43,3 +43,14 @@ class updates_by_team(models.Model):
 
     def __str__(self):
         return self.username 
+    
+
+class work_assign_by_guide(models.Model):
+    username=models.CharField(default="", max_length=50)
+    guide=models.ForeignKey(guide, on_delete=models.CASCADE, default="")
+    team_std_div = models.CharField(max_length=10, default="")
+    team_no = models.CharField(max_length=2, default="")
+    start_date=models.DateField( auto_now=False, auto_now_add=False)
+    end_date=models.DateField( auto_now=False, auto_now_add=False)
+    work_name=models.CharField(default="", max_length=50)
+    work_des=models.CharField(default="", max_length=50)
