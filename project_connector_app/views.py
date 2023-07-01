@@ -122,7 +122,7 @@ def guide_assign(request, pr, ag):
             team_std_div=std,
             start_date=start_date,
             end_date=end_date,
-            no=no,
+            team_no=no,
             work_name=work_name,
             work_des=work_des
         )
@@ -165,7 +165,10 @@ def student_chat(request, pr):
 
 def student_work(request, pr):
     user = team.objects.get(username=pr)
-    return render(request, "student_work.html", {'pr': pr, 'user': user})
+    std=user.team_std_div
+    no=user.team_no
+    work_for_students=work_assign_by_guide.objects.filter(team_std_div=std , team_no=no)
+    return render(request, "student_work.html", {'pr': pr, 'user': user,'work_for_students':work_for_students})
 
 
 def student_updates(request, pr):

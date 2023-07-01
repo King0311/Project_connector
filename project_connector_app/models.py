@@ -54,3 +54,6 @@ class work_assign_by_guide(models.Model):
     end_date=models.DateField( auto_now=False, auto_now_add=False)
     work_name=models.CharField(default="", max_length=50)
     work_des=models.CharField(default="", max_length=50)
+
+    def __str__(self):
+        return self.team_std_div 

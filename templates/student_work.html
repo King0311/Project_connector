@@ -69,7 +69,7 @@
                 <div class="lof">
                     <ul>
                         <li><a href="{% url 'student_chat' pr %}">Chat</a></li>
-                        <li><b><a href="#">Assign work</a></b></li>
+                        <li><b><a href="#">Assigned work</a></b></li>
                         <li><a href="{% url 'student_updates' pr %}">Updates</a></li>
                     </ul>
                 </div>
@@ -79,15 +79,14 @@
                     </h1>
                 </div>
                 <div class="teams">
+                    {% for work in work_for_students %}
                     <div class="team1">
                         <div class="names">
                             <p>
-                                Lorem ipsum dolor sit amet.<br>
+                                {{work.work_name}}<br>
                             </p>
                             <aside>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dolorem nisi
-                                deleniti itaque aliquam, voluptatibus hic eligendi voluptas error non optio deserunt
-                                tempora!
+                                {{work.work_des}}
                             </aside>
                         </div>
                         <div class="complete">
@@ -96,126 +95,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="team1">
-                        <div class="names">
-                            <p>
-                                Lorem ipsum dolor sit amet.<br>
-                            </p>
-                            <aside>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dolorem nisi
-                                deleniti itaque aliquam, voluptatibus hic eligendi voluptas error non optio deserunt
-                                tempora!
-                            </aside>
-                        </div>
-                        <div class="complete">
-                            <button>
-                                Do it
-                            </button>
-                        </div>
-                    </div>
-                    <div class="team1">
-                        <div class="names">
-                            <p>
-                                Lorem ipsum dolor sit amet.<br>
-                            </p>
-                            <aside>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dolorem nisi
-                                deleniti itaque aliquam, voluptatibus hic eligendi voluptas error non optio deserunt
-                                tempora!
-                            </aside>
-                        </div>
-                        <div class="complete">
-                            <button>
-                                Do it
-                            </button>
-                        </div>
-                    </div>
-                    <div class="team1">
-                        <div class="names">
-                            <p>
-                                Lorem ipsum dolor sit amet.<br>
-                            </p>
-                            <aside>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dolorem nisi
-                                deleniti itaque aliquam, voluptatibus hic eligendi voluptas error non optio deserunt
-                                tempora!
-                            </aside>
-                        </div>
-                        <div class="complete">
-                            <button>
-                                Do it
-                            </button>
-                        </div>
-                    </div>
-                    <div class="team1">
-                        <div class="names">
-                            <p>
-                                Lorem ipsum dolor sit amet.<br>
-                            </p>
-                            <aside>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dolorem nisi
-                                deleniti itaque aliquam, voluptatibus hic eligendi voluptas error non optio deserunt
-                                tempora!
-                            </aside>
-                        </div>
-                        <div class="complete">
-                            <button>
-                                Do it
-                            </button>
-                        </div>
-                    </div>
-                    <div class="team1">
-                        <div class="names">
-                            <p>
-                                Lorem ipsum dolor sit amet.<br>
-                            </p>
-                            <aside>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dolorem nisi
-                                deleniti itaque aliquam, voluptatibus hic eligendi voluptas error non optio deserunt
-                                tempora!
-                            </aside>
-                        </div>
-                        <div class="complete">
-                            <button>
-                                Do it
-                            </button>
-                        </div>
-                    </div>
-                    <div class="team1">
-                        <div class="names">
-                            <p>
-                                Lorem ipsum dolor sit amet.<br>
-                            </p>
-                            <aside>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dolorem nisi
-                                deleniti itaque aliquam, voluptatibus hic eligendi voluptas error non optio deserunt
-                                tempora!
-                            </aside>
-                        </div>
-                        <div class="complete">
-                            <button>
-                                Do it
-                            </button>
-                        </div>
-                    </div>
-                    <div class="team1">
-                        <div class="names">
-                            <p>
-                                Lorem ipsum dolor sit amet.<br>
-                            </p>
-                            <aside>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur dolorem nisi
-                                deleniti itaque aliquam, voluptatibus hic eligendi voluptas error non optio deserunt
-                                tempora!
-                            </aside>
-                        </div>
-                        <div class="complete">
-                            <button>
-                                Do it
-                            </button>
-                        </div>
-                    </div>
-
+                    {% endfor %}
                 </div>
             </div>
         </div>
